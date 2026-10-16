@@ -52,13 +52,12 @@ fla                     [Status: 200, Size: 3, Words: 1, Lines: 1, Duration: 68m
 
 - From there I only had to go caracter by caracter to find the flag, I did a script in python to do it
 
+- Run the script python3 leak7.py and it gave me the flag
 ```
 ```
 ```
 ```
 ## Reproduce
-- Run the fuzzing "ffuf -u http://leak5.chal.deti:8014/api/users/7?FUZZ=1 -w ./burp-parameter-names.txt -ac"
-- Verbose is a parameter
-- Go to "http://leak5.chal.deti:8014/api/users/7?verbose=1"
-- Flag is there
+- Setup a venv, install requests package in there, run python3 leak7.py
+- It gives the flag
 
