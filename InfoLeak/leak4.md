@@ -6,11 +6,6 @@ Release v1.4.2
 changelog
 ```
 
-
-```
-```
-
-
 ## Method
 - The first thing i tought was click on the changelog to get some clues, but it just returned 404
 - Then I saw the "Release v1.4.2" and tought that maybe it had some route like "/v1.4.2" or "/v1-4-2" or something similar but all of them return 404 
@@ -67,16 +62,9 @@ eea9eb57e2f69daf2c11f03f5830653f12dcfa1c
 0000000000000000000000000000000000000000 e187934516e118fac1099d67bf66ce1855fde013 dev <dev@acme.internal> 1791494218 +0000	commit (initial): temp: add flag flag{g1t_h1story_l34ks} for testing
 e187934516e118fac1099d67bf66ce1855fde013 eea9eb57e2f69daf2c11f03f5830653f12dcfa1c dev <dev@acme.internal> 1791494218 +0000	commit: chore: remove temp flag
 ```
-```
-```
-```   
-```
-
 - As you can see the flag is there
 
 ## Reproduce
 - Go to "http://leak4.chal.deti:8013/.git/logs/HEAD"
 - Open the file that it downloader
 - Flag is there
-
-```
