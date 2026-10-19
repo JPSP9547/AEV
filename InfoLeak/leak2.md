@@ -6,9 +6,6 @@ App
 Normal API service.
 status: /status
 ```
-```
-```
-
 
 ## Method
 - The first thing i tried was to check the /status which returned 404
@@ -70,9 +67,6 @@ env                     [Status: 200, Size: 417, Words: 1, Lines: 2, Duration: 1
 :: Progress: [4614/4614] :: Job [1/1] :: 1503 req/sec :: Duration: [0:00:03] :: Errors: 0 ::
 
 ```
-```
-```
-
 - Then i went to /debug/env and it returned
 ```
 	
@@ -87,11 +81,6 @@ PYTHON_VERSION	"3.12.14"
 SERVER_SOFTWARE	"gunicorn/26.2.0"
 container	"podman"
 ```
-```
-```
-```
-```
-
 - The flag is there
 
 ## Reproduce
@@ -99,5 +88,4 @@ container	"podman"
 - Check that it gave a env result
 - Go to "http://leak2.chal.deti:8011/debug/env" 
 - The flag is there
-```
-```
+
