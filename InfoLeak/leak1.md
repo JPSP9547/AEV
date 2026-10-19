@@ -85,11 +85,4 @@ __Alternative__
 - Run ffuf -u http://leak1.chal.deti:8010/static/config.pyFUZZ -w /usr/share/dirb/wordlists/mutationscommon.txt 
 - Check that .bak has returned 200
 - Go to "http://leak1.chal.deti:8010/static/config.py.bak"
-```
-```
-```
-```
-```
-```
-```
-```
+
