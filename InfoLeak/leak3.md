@@ -25,8 +25,6 @@ Index of /public/
     flag.txt
 
 ```
-```
-```
 
 - Then i clicked flag.txt and it got me to "http://leak3.chal.deti:8012/public/flag.txt" where i saw
 ```
@@ -42,5 +40,4 @@ flag{37d38bc19f5cc89390d25f8cd04ea736}
 __Alternative__
 
 - Just go the "http://leak3.chal.deti:8012/public/flag.txt" or just curl it
-```
-```
+
