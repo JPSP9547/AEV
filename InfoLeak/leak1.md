@@ -69,9 +69,6 @@ __
 s04@s04:~$
 
 ```
-```
-
-```
 - Notice that .bak returns 200, so there something at config.py.bak
 
 - Go to "http://leak1.chal.deti:8010/static/config.py.bak"
