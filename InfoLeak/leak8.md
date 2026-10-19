@@ -16,8 +16,6 @@ User-agent: *
 Disallow: /admin-secret/
 ```
 
-```
-```
 - After seeing this i went to http://leak8.chal.deti:8017/admin-secret which returned
 ```
 
@@ -27,5 +25,3 @@ flag{70d7874ef9f8714a4e0745cb84f9d0d5}
 ## Reproduce
 - Go to page "http://leak8.chal.deti:8017/admin-secret" or curl it
 - The Flag should be there
-
-```
