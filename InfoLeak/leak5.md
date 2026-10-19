@@ -13,8 +13,6 @@ email	"alice@example.com"
 id	1
 username	"alice"
 ```
-```
-```
 
 - I tried other ids at the end and it worked for numbers from 1-7 (enumeration with ffuf did this actually)
 
