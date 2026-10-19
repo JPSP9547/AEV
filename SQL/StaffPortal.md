@@ -3,10 +3,6 @@
 ### http://sqli1.chal.deti:8030
 
 I saw this:
-```
-```
-```
-```
 ``` html
 <!doctype html>
 <html lang="en">
