@@ -25,9 +25,6 @@ Auth service
   "flag": "flag{811a2155d58d0f182ec57761eeec9f5c}"
 }
 ```
-```
-```
-
 - The flag is right there
 
 ## Reproduce
@@ -35,4 +32,3 @@ Auth service
 - Write any user on the text camp and click login
 - Decode the returned token
 - Flag is there
-```
