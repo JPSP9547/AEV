@@ -31,7 +31,7 @@ Traceback (most recent call last):
 RuntimeError: boom in /crash
 ```
 
-- As you can see, in the second line counting from the bottom the flag is where
+- As you can see, in the second line counting from the bottom ,the flag is there
 - This is a stack trace that shouldn't happen, giving too much information about the inner working of the system
 
 ## Reproduce
