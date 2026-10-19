@@ -40,6 +40,4 @@ Edit
 __Alternitibly__
 - Run  curl -X GET http://leak9.chal.deti:8018
 - On the ouput there will be the HTML and the flag
-```
-```
-```
+
