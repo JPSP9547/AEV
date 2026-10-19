@@ -53,11 +53,7 @@ fla                     [Status: 200, Size: 3, Words: 1, Lines: 1, Duration: 68m
 - From there I only had to go caracter by caracter to find the flag, I did a script in python to do it
 
 - Run the script python3 leak7.py and it gave me the flag
-```
-```
-```
-```
+
 ## Reproduce
 - Setup a venv, install requests package in there, run python3 leak7.py
 - It gives the flag
-
